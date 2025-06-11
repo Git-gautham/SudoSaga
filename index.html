@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SudoSaga</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>🧠 SudoSaga</h1>
+  <h5>Sharpen your logic! Play now!</h5>
+
+  <div id="grid"></div>
+
+  <div id="controls" class="mt-3">
+    <button class="btn btn-primary" onclick="validateGrid()">Check Solution</button>
+    <button class="btn btn-warning" onclick="clearInputs()">Reset</button>
+    <button class="btn btn-success" onclick="startNewPuzzle()">New Game</button>
+    <button class="btn btn-info" onclick="fillOneHint()">Hint</button>
+    <button class="btn btn-secondary" onclick="switchTheme()">Toggle Dark Mode</button>
+  </div>
+
+  <div id="statusMsg" class="mt-2"></div>
+
+  <div id="stats" class="mt-4">
+    <p id="elapsedTime">⏱️ Time: 0s</p>
+    <p id="summary">🎯 Solved: 0 | 🏁 Fastest: - | ⌛ Total: 0s</p>
+    <button class="btn btn-outline-danger btn-sm" onclick="resetProgress()">Reset Stats</button>
+  </div>
+
+  <div id="hallOfFame" class="mt-4">
+    <h5>🏆 Leaderboard</h5>
+    <ol id="topTimes"></ol>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
