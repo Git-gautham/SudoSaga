@@ -81,27 +81,35 @@ body.dark input.invalid {
 }
 /* Bold grid lines to outline 3x3 subgrids */
 .cell {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  box-sizing: border-box;
   border: 1px solid #ccc;
+
+  /* Bolder borders for 3x3 squares */
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
 }
 
-#grid .cell:nth-child(3n+1) {
+.cell:nth-child(3n + 1) {
   border-left: 2px solid #000;
 }
 
-#grid .cell:nth-child(9n) {
+.cell:nth-child(n + 1):nth-child(-n + 9),
+.cell:nth-child(n + 28):nth-child(-n + 36),
+.cell:nth-child(n + 55):nth-child(-n + 63) {
+  border-top: 2px solid #000;
+}
+
+.cell:nth-child(9n) {
   border-right: 2px solid #000;
 }
 
-#grid .cell:nth-child(-n+9) {
-  border-top: 2px solid #000;
-}
-
-#grid .cell:nth-child(n+73) {
+.cell:nth-child(n + 73) {
   border-bottom: 2px solid #000;
 }
-
-#grid .cell:nth-child(n+28):nth-child(-n+36),
-#grid .cell:nth-child(n+55):nth-child(-n+63) {
-  border-top: 2px solid #000;
-}
-
