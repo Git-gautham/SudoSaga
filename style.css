@@ -16,15 +16,16 @@ h1 {
 #grid {
   margin: 20px auto;
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  max-width: 90vmin;
-  aspect-ratio: 1;
+  grid-template-columns: repeat(9, 40px);
+  grid-template-rows: repeat(9, 40px);
+  width: fit-content;
 }
 
-/* Cell Styling */
+/* Base Cell Styling */
 .cell {
-  aspect-ratio: 1;
-  font-size: clamp(14px, 4vw, 20px);
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,48 +34,51 @@ h1 {
   border: 1px solid #ccc;
 }
 
+/* Bold borders for 3×3 boxes */
+.cell[data-row="0"] {
+  border-top: 2px solid black;
+}
+.cell[data-row="3"],
+.cell[data-row="6"] {
+  border-top: 2px solid black;
+}
+.cell[data-row="8"] {
+  border-bottom: 2px solid black;
+}
+.cell[data-col="0"] {
+  border-left: 2px solid black;
+}
+.cell[data-col="3"],
+.cell[data-col="6"] {
+  border-left: 2px solid black;
+}
+.cell[data-col="8"] {
+  border-right: 2px solid black;
+}
+
 /* Pre-filled (locked) cells */
 .cell.locked {
   background-color: #e9ecef;
   font-weight: bold;
 }
 
-/* Input fields in editable cells */
+/* Editable cells */
 .cell input {
   width: 100%;
   height: 100%;
   border: none;
-  font-size: inherit;
+  font-size: 20px;
   text-align: center;
   background: white;
   outline: none;
 }
 
-/* Validation feedback */
+/* Invalid entries */
 input.invalid {
   background-color: #f8d7da;
 }
 
-/* Bold borders for 3×3 box separation */
-.cell[data-row="2"],
-.cell[data-row="5"] {
-  border-bottom: 2px solid black;
-}
-
-.cell[data-row="0"] {
-  border-top: 2px solid black;
-}
-
-.cell[data-col="2"],
-.cell[data-col="5"] {
-  border-right: 2px solid black;
-}
-
-.cell[data-col="0"] {
-  border-left: 2px solid black;
-}
-
-/* Status message */
+/* Message */
 #statusMsg {
   font-weight: bold;
   margin-top: 10px;
@@ -85,21 +89,18 @@ body.dark {
   background: #1c1c1c;
   color: #f0f0f0;
 }
-
 body.dark .cell {
   background-color: #2a2a2a;
   border-color: #555;
 }
-
 body.dark .cell.locked {
   background-color: #444;
 }
-
 body.dark input.invalid {
   background-color: #ff6b6b;
 }
 
-/* Leaderboard formatting */
+/* Leaderboard */
 #topTimes {
   list-style-position: inside;
   padding-left: 0;
