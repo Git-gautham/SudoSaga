@@ -12,6 +12,7 @@ h1 {
   gap: 10px;
   margin-bottom: 10px;
 }
+
 #grid {
   margin: 20px auto;
   display: grid;
@@ -20,7 +21,7 @@ h1 {
   aspect-ratio: 1;
 }
 
-/* Base Cell Styling */
+/* Cell Styling */
 .cell {
   aspect-ratio: 1;
   font-size: clamp(14px, 4vw, 20px);
@@ -32,7 +33,29 @@ h1 {
   border: 1px solid #ccc;
 }
 
-/* Borders for 3×3 box divisions */
+/* Pre-filled (locked) cells */
+.cell.locked {
+  background-color: #e9ecef;
+  font-weight: bold;
+}
+
+/* Input fields in editable cells */
+.cell input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: inherit;
+  text-align: center;
+  background: white;
+  outline: none;
+}
+
+/* Validation feedback */
+input.invalid {
+  background-color: #f8d7da;
+}
+
+/* Bold borders for 3×3 box separation */
 .cell[data-row="2"],
 .cell[data-row="5"] {
   border-bottom: 2px solid black;
@@ -51,28 +74,13 @@ h1 {
   border-left: 2px solid black;
 }
 
-/* Editable input fields scale too */
-.cell input {
-  width: 100%;
-  height: 100%;
-  border: none;
-  font-size: inherit;
-  text-align: center;
-  background: white;
-  outline: none;
-}
-
-/* Validation feedback */
-input.invalid {
-  background-color: #f8d7da;
-}
-
+/* Status message */
 #statusMsg {
   font-weight: bold;
   margin-top: 10px;
 }
 
-/* Dark mode styles */
+/* Dark Mode */
 body.dark {
   background: #1c1c1c;
   color: #f0f0f0;
@@ -91,7 +99,7 @@ body.dark input.invalid {
   background-color: #ff6b6b;
 }
 
-/* Leaderboard list formatting */
+/* Leaderboard formatting */
 #topTimes {
   list-style-position: inside;
   padding-left: 0;
