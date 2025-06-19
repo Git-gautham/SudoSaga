@@ -18,20 +18,19 @@ function startNewPuzzle() {
   initGame();
   msgEl.textContent = "";
 }
-
 function renderGrid() {
   gridEl.innerHTML = "";
   for (let r = 0; r < 9; r++) {
     for (let c = 0; c < 9; c++) {
       const value = currentBoard[r][c];
-      const cellDiv = document.createElement("div");
-      cellDiv.className = "cell";
-      cellDiv.dataset.row = r;
-      cellDiv.dataset.col = c;
+      const cell = document.createElement("div");
+      cell.className = "cell";
+      cell.dataset.row = r;       // ✅ for CSS row targeting
+      cell.dataset.col = c;       // ✅ for CSS col targeting
 
       if (value !== "") {
-        cellDiv.classList.add("locked");
-        cellDiv.textContent = value;
+        cell.classList.add("locked");
+        cell.textContent = value;
       } else {
         const input = document.createElement("input");
         input.type = "text";
@@ -39,10 +38,10 @@ function renderGrid() {
         input.dataset.row = r;
         input.dataset.col = c;
         input.addEventListener("input", handleInput);
-        cellDiv.appendChild(input);
+        cell.appendChild(input);
       }
 
-      gridEl.appendChild(cellDiv);
+      gridEl.appendChild(cell);
     }
   }
 }
