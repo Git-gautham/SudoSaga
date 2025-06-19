@@ -24,11 +24,14 @@ function renderGrid() {
   for (let r = 0; r < 9; r++) {
     for (let c = 0; c < 9; c++) {
       const value = currentBoard[r][c];
-      const box = document.createElement("div");
-      box.className = "cell";
+      const cellDiv = document.createElement("div");
+      cellDiv.className = "cell";
+      cellDiv.dataset.row = r;
+      cellDiv.dataset.col = c;
+
       if (value !== "") {
-        box.classList.add("locked");
-        box.textContent = value;
+        cellDiv.classList.add("locked");
+        cellDiv.textContent = value;
       } else {
         const input = document.createElement("input");
         input.type = "text";
@@ -36,12 +39,14 @@ function renderGrid() {
         input.dataset.row = r;
         input.dataset.col = c;
         input.addEventListener("input", handleInput);
-        box.appendChild(input);
+        cellDiv.appendChild(input);
       }
-      gridEl.appendChild(box);
+
+      gridEl.appendChild(cellDiv);
     }
   }
 }
+
 
 function handleInput(e) {
   const el = e.target;
