@@ -18,6 +18,7 @@ function startNewPuzzle() {
   initGame();
   msgEl.textContent = "";
 }
+
 function renderGrid() {
   gridEl.innerHTML = "";
   for (let r = 0; r < 9; r++) {
@@ -25,8 +26,8 @@ function renderGrid() {
       const value = currentBoard[r][c];
       const cell = document.createElement("div");
       cell.className = "cell";
-      cell.dataset.row = r;       // ✅ for CSS row targeting
-      cell.dataset.col = c;       // ✅ for CSS col targeting
+      cell.dataset.row = r;
+      cell.dataset.col = c;
 
       if (value !== "") {
         cell.classList.add("locked");
@@ -45,7 +46,6 @@ function renderGrid() {
     }
   }
 }
-
 
 function handleInput(e) {
   const el = e.target;
