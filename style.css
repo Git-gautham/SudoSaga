@@ -12,57 +12,43 @@ h1 {
   gap: 10px;
   margin-bottom: 10px;
 }
-
 #grid {
   margin: 20px auto;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
-  max-width: 360px; /* 9 × 40px */
-  aspect-ratio: 1 / 1;
-  width: 90vw;
+  max-width: 90vmin;
+  aspect-ratio: 1;
 }
 
-/* Basic cell styling */
+/* Base Cell Styling */
 .cell {
-  aspect-ratio: 1 / 1;
-  font-size: clamp(14px, 3.5vw, 20px);
+  aspect-ratio: 1;
+  font-size: clamp(14px, 4vw, 20px);
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
   background-color: white;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
 }
 
-/* Bolder borders for 3x3 box divisions */
-.cell:nth-child(9n+1),
-.cell:nth-child(9n+4),
-.cell:nth-child(9n+7) {
-  border-left: 2px solid black;
-}
-
-.cell:nth-child(-n+9) {
-  border-top: 2px solid black;
-}
-
-.cell:nth-child(n+19):nth-child(-n+27),
-.cell:nth-child(n+46):nth-child(-n+54),
-.cell:nth-child(n+73):nth-child(-n+81) {
-  border-top: 2px solid black;
-}
-
-.cell:nth-child(9n) {
-  border-right: 2px solid black;
-}
-
-.cell:nth-child(n+73) {
+/* Borders for 3×3 box divisions */
+.cell[data-row="2"],
+.cell[data-row="5"] {
   border-bottom: 2px solid black;
 }
 
-/* Pre-filled locked cells */
-.cell.locked {
-  background-color: #e9ecef;
-  font-weight: bold;
+.cell[data-row="0"] {
+  border-top: 2px solid black;
+}
+
+.cell[data-col="2"],
+.cell[data-col="5"] {
+  border-right: 2px solid black;
+}
+
+.cell[data-col="0"] {
+  border-left: 2px solid black;
 }
 
 /* Editable input fields scale too */
