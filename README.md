@@ -18,6 +18,12 @@ SudoSaga is a fully-featured Sudoku game built using HTML, CSS, and JavaScript, 
 ├── style.css         # Styling, grid layout, dark mode
 └── script.js         # Game logic, timer, stats, validation
 
+
+🔗 Live Demo
+
+    Visit the hosted site here: https://git-gautham.github.io/SudoSaga/
+
+
 🛠️ How to Run
 
     Download or clone the repo.
